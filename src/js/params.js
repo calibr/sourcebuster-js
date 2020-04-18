@@ -18,7 +18,7 @@ module.exports = {
     params.session_length = this.validate.checkInt(user.session_length) || 30;
 
     // Set `timezone offset` in hours
-    params.timezone_offset = this.validate.checkInt(user.timezone_offset);
+    params.timezone_offset = user.timezone_offset === 0 ? 0 : this.validate.checkInt(user.timezone_offset);
 
     // Set `campaign param` for AdWords links
     params.campaign_param = user.campaign_param || false;
